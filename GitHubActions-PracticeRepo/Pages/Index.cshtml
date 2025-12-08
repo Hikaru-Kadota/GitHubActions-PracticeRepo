@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "じゃんけんゲーム";
+}
+
+<div class="text-center">
+    <h1 class="display-4">じゃんけんゲーム</h1>
+    <p class="lead">グー、チョキ、パーのいずれかを選んでください</p>
+
+    <form method="post" class="mt-4">
+        <div class="d-flex justify-content-center gap-3 mb-4">
+            <button type="submit" name="PlayerChoice" value="グー" class="btn btn-primary btn-lg">
+                ✊ グー
+            </button>
+            <button type="submit" name="PlayerChoice" value="チョキ" class="btn btn-primary btn-lg">
+                ✌️ チョキ
+            </button>
+            <button type="submit" name="PlayerChoice" value="パー" class="btn btn-primary btn-lg">
+                ✋ パー
+            </button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Result))
+    {
+        <div class="mt-5">
+            <div class="alert alert-info">
+                <h3>結果</h3>
+                <p class="mb-1"><strong>あなた:</strong> @Model.PlayerChoice</p>
+                <p class="mb-1"><strong>コンピューター:</strong> @Model.ComputerChoice</p>
+                <h4 class="mt-3">@Model.Result</h4>
+            </div>
+        </div>
+    }
+</div>
