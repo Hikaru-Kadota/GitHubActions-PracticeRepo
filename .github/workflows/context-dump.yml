@@ -1,0 +1,11 @@
+name: Context dump
+
+on:
+  workflow_dispatch:
+
+jobs:
+  context-dump:
+    runs-on: ubuntu-latest
+    steps:
+    - name: dump context
+      run: echo [github]
