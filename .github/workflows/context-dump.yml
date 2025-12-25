@@ -16,9 +16,9 @@ jobs:
       run: echo '${{ toJSON(github.event) }}'
 
     - name: workflow dispatch trigger
-      if: ${{ event.action == 'workflow_dispatch' }}
+      if: github.event.action == "workflow_dispatch"
       run: echo "Hello from workflow_dispatch"
 
     - name: issue create trigger
-      if: ${{ event.action == 'opened' }}
+      if: github.event.action == 'opened'
       run: echo "Hello from issues"
