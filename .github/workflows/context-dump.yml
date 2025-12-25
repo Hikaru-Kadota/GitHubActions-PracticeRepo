@@ -14,3 +14,11 @@ jobs:
 
     - name: dump event context
       run: echo '${{ toJSON(github.event) }}'
+
+    - name: workflow dispatch triger
+      if: ${{ event.action == "workflow_dispatch" }}
+      run: echo "Hello from workflow_dispatch"
+
+    - name: issue create triger
+      if: ${{ event.action == "opened" }}
+      run: echo "Hello from issues"
