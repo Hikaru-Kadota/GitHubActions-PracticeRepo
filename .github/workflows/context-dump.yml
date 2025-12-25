@@ -2,6 +2,8 @@ name: Context dump
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
 
 jobs:
   context-dump:
