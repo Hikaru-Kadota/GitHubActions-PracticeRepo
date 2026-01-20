@@ -20,4 +20,4 @@ jobs:
       run: ls -la
 
     - name: build
-      run: dotnet build --project /GitHubActions-PracticeRepo.csproj
+      run: dotnet build --project ./GitHubActions-PracticeRepo.csproj
