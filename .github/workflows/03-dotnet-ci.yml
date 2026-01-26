@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -16,20 +16,8 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
 
-    - name: ls
-      run: ls -la
-
-    - name: build
+    - name: Build
       run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v6
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v5
-
-    - name: test
+    - name: Test
       run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj
