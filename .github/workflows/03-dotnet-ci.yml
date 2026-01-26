@@ -16,8 +16,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
 
+    - name: Restore dependencies
+      run: dotnet restore ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj
+
     - name: Build
-      run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj
+      run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj --no-restore
 
     - name: Test
-      run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj --logger "console;verbosity=detailed"
+      run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj --no-build --logger "console;verbosity=detailed"
