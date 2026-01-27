@@ -6,8 +6,8 @@ on:
       - main
   workflow_dispatch:
 
-  env:
-    VARS: Release
+env:
+  VARS: Release
 
 jobs:
   build-and-test:
