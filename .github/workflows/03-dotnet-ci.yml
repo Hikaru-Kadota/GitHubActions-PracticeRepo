@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  VARS: Release
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
