@@ -20,7 +20,7 @@ jobs:
       run: dotnet restore ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj
 
     - name: Build
-      run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj --no-restore --configuration $VARS
+      run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj --no-restore --configuration ${{ vars.VARS }}
 
     - name: Test
-      run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj --no-build --logger "console;verbosity=detailed" --configuration $VARS
+      run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj --no-build --logger "console;verbosity=detailed" --configuration ${{ vars.VARS }}
