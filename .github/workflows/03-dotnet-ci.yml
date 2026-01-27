@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+  env:
+    VARS: Release
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -20,7 +23,7 @@ jobs:
       run: dotnet restore ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj
 
     - name: Build
-      run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj --no-restore
+      run: dotnet build ./GitHubActions-PracticeRepo/GitHubActions-PracticeRepo.csproj --no-restore --configuration $VARS
 
     - name: Test
-      run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj --no-build --logger "console;verbosity=detailed"
+      run: dotnet test ./GitHubActions-PracticeRepo.Tests/GitHubActions-PracticeRepo.Tests.csproj --no-build --logger "console;verbosity=detailed" --configuration $VARS
